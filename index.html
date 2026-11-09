@@ -1,0 +1,267 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LastBite - Pesan Antar Makanan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-card">
+            <div class="logo">🍔 LastBite</div>
+            <p class="subtitle">Delicious - Affordable - Quality Food</p>
+
+            <!-- Pilihan peran -->
+            <div class="role-selection">
+                <h2>Masuk sebagai</h2>
+                <div class="role-buttons">
+                    <button type="button" class="role-btn" data-role="konsumen">
+                        🛍️ Konsumen
+                    </button>
+
+                    <button type="button" class="role-btn" data-role="penjual">
+                        🏪 Penjual
+                    </button>
+
+                    <button type="button" class="role-btn" data-role="kurir">
+                        🛵 Kurir
+                    </button>
+                </div>
+            </div>
+
+            <!-- Form login -->
+            <form id="loginForm">
+                <h2 id="formTitle">Login Konsumen</h2>
+                <label for="loginUsername">Username</label>
+                <input type="text" id="loginUsername" placeholder="Masukkan username" required>
+
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" placeholder="Masukkan password" required>
+
+                <button type="submit" class="main-btn">Login</button>
+
+                <p class="switch-text">
+                    Belum punya akun?
+                    <a href="#" id="showRegister">Daftar di sini</a>
+                </p>
+            </form>
+
+            <!-- Form pendaftaran -->
+            <form id="registerForm" hidden>
+                <h2>Daftar Akun</h2>
+                <label for="registerUsername">Username</label>
+                <input type="text" id="registerUsername" placeholder="Buat username" required minlength="3">
+
+                <label for="registerPassword">Password</label>
+                <input type="password" id="registerPassword" placeholder="Buat password" required minlength="6">
+
+                <label for="confirmPassword">Konfirmasi Password</label>
+                <input type="password" id="confirmPassword" placeholder="Ulangi password" required minlength="6">
+
+                <div id="sellerAddressGroup" hidden>
+                    <label for="registerRestaurantAddress">Alamat Restoran</label>
+                    <textarea
+                        id="registerRestaurantAddress"
+                        placeholder="Masukkan alamat lengkap restoran"
+                        minlength="10"
+                        rows="3"
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="main-btn">Daftar</button>
+
+                <p class="switch-text">
+                    Sudah punya akun?
+                    <a href="#" id="showLogin">Login di sini</a>
+                </p>
+            </form>
+
+            <p id="message" role="status" aria-live="polite"></p>
+
+            <!-- Dashboard setelah login -->
+            <div id="dashboard" hidden>
+                <!-- MENU SETTING -->
+                <div id="settingsContainer">
+                    <button type="button" id="settingsBtn">⚙ Setting</button>
+                    <div id="settingsMenu" hidden>
+                        <button type="button" id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+
+                <!-- Tampilan penjual -->
+                <header class="seller-header">
+                    <h1 id="welcomeTitle">Welcome!</h1>
+                    <p>Kelola menu restoranmu di sini.</p>
+                </header>
+
+                <main class="seller-content">
+                    <div id="menuList" class="menu-list"></div>
+                    <button type="button" id="addMenuBtn" class="add-menu-btn" aria-label="Tambah menu">+</button>
+
+                    <p class="add-menu-text">Tambah Menu</p>
+
+                    <form id="menuForm" class="menu-form" hidden>
+                        <h2>Tambah Menu Baru</h2>
+                        <label for="menuName">Nama Menu</label>
+                        <input type="text" id="menuName" placeholder="Contoh: Nasi Goreng" required>
+                        <label for="menuDescription">Keterangan Menu</label>
+                        <textarea id="menuDescription"
+                            placeholder="Deskripsi singkat makanan"
+                            rows="3" required></textarea>
+
+                        <label for="menuPrice">Harga (Rp)</label>
+                        <input type="number" id="menuPrice" placeholder="Contoh: 15000" min="1" step="1" required>
+
+                        <div class="form-actions">
+                            <button type="submit" class="save-btn">Simpan Menu</button>
+                            <button type="button" id="cancelMenuBtn" class="cancel-btn">Batal</button>
+                        </div>
+                    </form>
+
+                    <!-- Pesanan masuk untuk penjual -->
+                     <section id="sellerOrders" class="seller-orders">
+                        <h2>Pesanan Masuk</h2>
+                        <p class="orders-description">
+                            Lihat pesanan konsumen dan perbarui statusnya di sini.
+                        </p>
+
+                        <div id="sellerOrderList" class="seller-order-list"></div>
+
+                        <p id="emptyOrdersMessage" class="empty-orders-message">
+                            Belum ada pesanan masuk.
+                        </p>
+                    </section>
+                </main>
+
+                <!-- Tampilan konsumen -->
+                <section id="consumerView" hidden>
+                    <header class="consumer-header">
+                        <div>
+                            <h1 id="consumerWelcome">Welcome!</h1>
+                            <p class="slogan">Get your <strong>LastBite</strong> here!</p>
+                        </div>
+                        <button type="button" id="myOrdersBtn" class="my-orders-btn">Pesanan Saya</button>
+                    </header>
+
+                    <!-- Daftar restoran -->
+                    <main id="restaurantPage">
+                        <h2 class="section-title">Pilihan Restoran</h2>
+                        <div id="restaurantList" class="restaurant-list"></div>
+                    </main>
+
+                    <!-- Halaman detail restoran -->
+                    <main id="restaurantDetail" hidden>
+                        <button type="button" id="backToRestaurants" class="back-btn">← Kembali ke restoran</button>
+                        <h2 id="restaurantName" class="section-title"></h2>
+                        <div id="consumerMenuList" class="menu-list"></div>
+                        <p id="emptyMenuMessage" hidden>
+                            Tidak ada menu yang tersedia di restoran ini
+                        </p>
+
+                        <!-- Tombol pemesanan di bagian bawah -->
+                        <div id="orderBar" class="order-bar" hidden>
+                            <div>
+                                <span id="cartSummary">0 menu dipilih</span>
+                                <p id="cartTotal">Rp0</p>
+                            </div>
+                            <button type="button" id="orderBtn" class="order-btn">Pesan</button>
+                        </div>
+                    </main>
+
+                    <!-- Alamat pengiriman -->
+                    <main id="addressPage" hidden>
+                        <button type="button" id="backToMenu" class="back-btn">← Kembali ke menu</button>
+                        <h2 class="section-title">Alamat Pengiriman</h2>
+                        <p class="page-description">
+                            Masukkan alamat lengkap tempat pesanan akan diantar.
+                        </p>
+
+                        <form id="addressForm" class="checkout-form">
+                            <label for="deliveryAddress">Alamat Lengkap</label>
+                            <textarea id="deliveryAddress" rows="4"
+                                placeholder="Nama jalan, nomor rumah, RT/RW, kelurahan, dan kecamatan"
+                                required minlength="10" maxlength="500">
+                            </textarea>
+
+                            <label for="addressNote">Catatan Alamat (opsional)</label>
+                            <textarea id="addressNote" rows="2" maxlength="200"
+                                placeholder="Contoh: Rumah pagar hitam, dekat minimarket">
+                            </textarea>
+
+                            <button type="submit" class="order-btn full-btn">Selesaikan Pesanan</button>
+
+                            <label for="addressNote">Catatan Pesanan (Opsional)</label>
+                            <textarea
+                                id="addressNote"
+                                placeholder="Contoh: Tidak pedas, tanpa bawang, dan sebagainya"
+                                rows="3"
+                            ></textarea>
+                        </form>
+                    </main>
+
+                    <!-- Rekap Pesanan -->
+                    <main id="receiptPage" hidden>
+                        <h2 class="section-title">Rekap Pesanan</h2>
+                        <p class="receipt-restaurant" id="receiptRestaurant"></p>
+                        <div id="receiptItems" class="receipt-items"></div>
+                        <div class="receipt-summary">
+                            <div class="summary-row">
+                                <span>Total Belanja</span>
+                                <span id="receiptSubtotal">Rp0</span>
+                            </div>
+
+                            <div class="summary-row">
+                                <span>Ongkos Kirim (10%)</span>
+                                <span id="receiptDelivery">Rp0</span>
+                            </div>
+
+                            <div class="summary-row grand-total">
+                                <span>Total Pembayaran</span>
+                                <span id="receiptTotal">Rp0</span>
+                            </div>
+                        </div>
+
+                        <div class="receipt-address">
+                            <h3>Alamat Pengiriman</h3>
+                            <p id="receiptAddress"></p>
+                            <p id="receiptNote"></p>
+                        </div>
+
+                        <button type="button" id="finishOrderBtn" class="order-btn full-btn">Selesai</button>
+                    </main>
+
+                    <!-- Halaman Pesanan Saya -->
+                     <main id="myOrdersPage" hidden>
+                        <button type="button" id="backFromOrders" class="back-btn">← Kembali ke beranda</button>
+                        <div class="my-orders-heading">
+                            <div>
+                                <h2 class="section-title">Pesanan Saya</h2>
+                                <p class="page-description">
+                                    Pantau status dan detail pesananmu di sini.
+                                </p>
+                            </div>
+                            <button type="button" id="refreshOrdersBtn" class="refresh-btn">↻ Perbarui</button>
+                        </div>
+                        <div id="consumerOrderList" class="consumer-order-list"></div>
+                        <p id="noConsumerOrders" class="empty-orders-message" hidden>
+                            Kamu belum memiliki pesanan.
+                        </p>
+                    </main>
+                </section>
+
+                <!-- Tampilan Kurir -->
+                <section id="courierView" hidden>
+                    <header class="courier-header">
+                        <h2 id="courierWelcome">Welcome, Kurir!</h2>
+                        <p>Daftar pesanan yang tersedia untuk diantar.</p>
+                    </header>
+                    <div id="courierOrders">
+                        <!-- Daftar pesanan akan ditampilkan melalui JavaScript -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

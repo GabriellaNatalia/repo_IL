@@ -1,0 +1,1081 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fff4e6, #ffe0cc);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+}
+
+.login-card {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #f97316;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+h2 {
+    font-size: 19px;
+    margin-bottom: 16px;
+    color: #333;
+}
+
+.role-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.role-buttons {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.role-btn {
+    flex: 1;
+    padding: 12px 8px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.role-btn.active {
+    background: #fff0e5;
+    border: 2px solid #f97316;
+    color: #ea580c;
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    margin-bottom: 7px;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #444;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #f97316;
+    box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.12);
+}
+
+.main-btn {
+    width: 100%;
+    margin-top: 22px;
+    padding: 13px;
+    border: none;
+    border-radius: 9px;
+    background: #f97316;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.main-btn:hover {
+    background: #ea580c;
+}
+
+.switch-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #777;
+}
+
+a {
+    color: #ea580c;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#message {
+    margin-top: 15px;
+    font-size: 13px;
+    text-align: center;
+    color: #dc2626;
+}
+
+#dashboard {
+    text-align: left;
+    position: relative;
+    padding-top: 65px;
+}
+
+#dashboard p {
+    color: #666;
+    line-height: 1.6;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 25px 20px;
+    }
+}
+
+/* Halaman penjual */
+.seller-header {
+    position: relative;
+    background: #f97316;
+    color: white;
+    padding: 30px 25px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+}
+
+.seller-header h1 {
+    font-size: 26px;
+    margin-bottom: 8px;
+    overflow-wrap: anywhere;
+}
+
+.seller-header p {
+    font-size: 14px;
+    opacity: 0.95;
+}
+
+.logout-btn {
+    margin-top: 18px;
+    padding: 8px 16px;
+    background: white;
+    color: #ea580c;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.seller-content {
+    text-align: center;
+}
+
+.menu-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.menu-item {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+    overflow-wrap: anywhere;
+}
+
+.menu-item h3 {
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.menu-item p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.menu-price {
+    color: #ea580c;
+    font-weight: bold;
+}
+
+.add-menu-btn {
+    width: 75px;
+    height: 75px;
+    border: none;
+    border-radius: 50%;
+    background: #f97316;
+    color: white;
+    font-size: 48px;
+    font-weight: 300;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
+    transition: transform 0.2s, background 0.2s;
+}
+
+.add-menu-btn:hover {
+    background: #ea580c;
+    transform: scale(1.08);
+}
+
+.add-menu-text {
+    color: #777;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.menu-form {
+    text-align: left;
+    background: white;
+    padding: 22px;
+    border: 1px solid #eee;
+    border-radius: 14px;
+    margin-top: 20px;
+}
+
+.menu-form h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.menu-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    resize: vertical;
+}
+
+.menu-form textarea:focus {
+    outline: none;
+    border-color: #f97316;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.save-btn,
+.cancel-btn {
+    flex: 1;
+    padding: 12px 8px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.save-btn {
+    background: #f97316;
+    color: white;
+}
+
+.cancel-btn {
+    background: #eee;
+    color: #444;
+}
+
+@media (max-width: 480px) {
+    .seller-header {
+        padding: 24px 18px;
+    }
+
+    .seller-header h1 {
+        font-size: 22px;
+    }
+
+    .menu-form {
+        padding: 18px;
+    }
+}
+
+/* HALAMAN KONSUMEN */
+.consumer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    background: #f97316;
+    color: white;
+    padding: 28px 24px;
+    border-radius: 14px;
+    margin-bottom: 28px;
+}
+
+.consumer-header h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+    overflow-wrap: anywhere;
+}
+
+.slogan {
+    font-size: 17px;
+    color: white;
+}
+
+.slogan strong {
+    font-weight: 800;
+}
+
+.consumer-header .logout-btn {
+    flex-shrink: 0;
+    margin-top: 0;
+}
+
+.section-title {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 18px;
+}
+
+.restaurant-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    text-align: left;
+}
+
+.restaurant-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 13px;
+    padding: 20px 15px;
+    cursor: pointer;
+    text-align: left;
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-width: 0;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.restaurant-card h3 {
+    color: #ea580c;
+    font-size: 16px;
+    overflow-wrap: anywhere;
+    margin-bottom: 8px;
+}
+
+.restaurant-card p {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.back-btn {
+    background: white;
+    border: 1px solid #ddd;
+    color: #ea580c;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#emptyMenuMessage {
+    color: #777;
+    font-size: 14px;
+    text-align: center;
+    padding: 35px 10px;
+    background: white;
+    border: 1px dashed #ddd;
+    border-radius: 12px;
+    line-height: 1.6;
+}
+
+#consumerMenuList .menu-item {
+    margin-bottom: 0;
+}
+
+@media (max-width: 480px) {
+    .consumer-header {
+        padding: 22px 16px;
+        align-items: flex-start;
+    }
+
+    .consumer-header h1 {
+        font-size: 20px;
+    }
+
+    .slogan {
+        font-size: 15px;
+    }
+
+    .restaurant-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* FITUR PEMESANAN */
+#consumerView {
+    padding-bottom: 90px;
+}
+
+#consumerView main {
+    min-width: 0;
+}
+
+.page-description {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+}
+
+.menu-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.menu-info h3 {
+    overflow-wrap: anywhere;
+}
+
+.menu-info p {
+    overflow-wrap: anywhere;
+}
+
+.menu-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-btn {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background: #f97316;
+    color: white;
+    font-size: 23px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quantity-btn:hover {
+    background: #ea580c;
+}
+
+.quantity-number {
+    font-weight: bold;
+    min-width: 16px;
+    text-align: center;
+}
+
+.order-bar {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(100%, 420px);
+    background: white;
+    padding: 15px 20px;
+    box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    z-index: 10;
+}
+
+.order-bar span {
+    color: #777;
+    font-size: 13px;
+}
+
+.order-bar p {
+    color: #ea580c;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+.order-btn {
+    padding: 13px 22px;
+    background: #f97316;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.order-btn:hover {
+    background: #ea580c;
+}
+
+.full-btn {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.checkout-form {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.checkout-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    resize: vertical;
+}
+
+.checkout-form textarea:focus {
+    outline: none;
+    border-color: #f97316;
+}
+
+.receipt-restaurant {
+    color: #ea580c;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.receipt-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.receipt-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.receipt-item > div:first-child {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.receipt-summary {
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+    padding-top: 16px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 14px;
+}
+
+.summary-row span:last-child {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.grand-total {
+    border-top: 1px solid #eee;
+    padding-top: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ea580c;
+}
+
+.receipt-address {
+    background: #fff7ed;
+    padding: 16px;
+    border-radius: 10px;
+    margin-top: 22px;
+}
+
+.receipt-address h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.receipt-address p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 480px) {
+    .order-bar {
+        padding: 12px 16px;
+    }
+
+    .order-btn {
+        padding: 12px 16px;
+    }
+
+    .checkout-form {
+        padding: 16px;
+    }
+}
+
+/* DASHBOARD PESANAN PENJUAL */
+.seller-orders {
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid #eee;
+}
+
+.seller-orders h2 {
+    color: #333;
+    font-size: 21px;
+    margin-bottom: 8px;
+}
+
+.orders-description {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.seller-order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.seller-order-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 13px;
+    padding: 18px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+    overflow-wrap: anywhere;
+}
+
+.order-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.order-card-header h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.order-id {
+    color: #888;
+    font-size: 12px;
+}
+
+.order-status {
+    display: inline-block;
+    padding: 6px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    background: #fff4cc;
+    color: #92400e;
+}
+
+.order-status.processing {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.order-status.completed {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.order-status.rejected {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.order-detail {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.order-detail h4 {
+    color: #333;
+    margin: 14px 0 6px;
+}
+
+.order-detail ul {
+    padding-left: 20px;
+}
+
+.order-total {
+    border-top: 1px solid #eee;
+    margin-top: 14px;
+    padding-top: 12px;
+    font-weight: bold;
+    color: #ea580c;
+}
+
+.order-status-label {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 7px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #444;
+}
+
+.order-status-select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    font-size: 14px;
+}
+
+.empty-orders-message {
+    padding: 25px 15px;
+    text-align: center;
+    border: 1px dashed #ddd;
+    border-radius: 12px;
+    color: #888;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+    .seller-order-card {
+        padding: 14px;
+    }
+
+    .order-card-header {
+        flex-direction: column;
+    }
+}
+
+/* STATUS PESANAN KONSUMEN */
+.my-orders-btn,
+.refresh-btn {
+    border: 1px solid #f97316;
+    color: #ea580c;
+    background: white;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.my-orders-btn:hover,
+.refresh-btn:hover {
+    background: #fff7ed;
+}
+
+.my-orders-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.my-orders-heading .section-title {
+    margin-bottom: 8px;
+}
+
+.consumer-order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.consumer-order-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 13px;
+    padding: 18px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+    overflow-wrap: anywhere;
+}
+
+.consumer-order-card h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.consumer-order-meta {
+    color: #888;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.consumer-order-status {
+    display: inline-block;
+    margin: 12px 0;
+    padding: 7px 11px;
+    border-radius: 20px;
+    background: #fff4cc;
+    color: #92400e;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.consumer-order-status.processing {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.consumer-order-status.completed {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.consumer-order-status.rejected {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.consumer-order-items {
+    padding-left: 20px;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.consumer-order-total {
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    margin-top: 12px;
+    color: #ea580c;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+@media (max-width: 480px) {
+    .my-orders-heading {
+        flex-direction: column;
+    }
+
+    .consumer-order-card {
+        padding: 14px;
+    }
+
+    .consumer-header {
+        flex-wrap: wrap;
+    }
+}
+
+/* HALAMAN KURIR */
+#courierView {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+
+.courier-header {
+    margin-bottom: 24px;
+}
+
+.courier-header h2 {
+    margin-bottom: 8px;
+}
+
+.courier-header p {
+    color: #666;
+}
+
+.courier-order-card {
+    padding: 18px;
+    margin-bottom: 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.courier-order-card h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.courier-order-card p {
+    margin: 8px 0;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.courier-order-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.courier-order-actions button {
+    flex: 1;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.courier-skip-btn {
+    background: #eee;
+    color: #333;
+}
+
+.courier-take-btn {
+    background: #287a4b;
+    color: #fff;
+}
+
+.courier-empty {
+    padding: 24px;
+    text-align: center;
+    color: #666;
+    background: #f7f7f7;
+    border-radius: 12px;
+}
+
+@media (max-width: 480px) {
+    .courier-order-actions {
+        flex-direction: column;
+    }
+}
+
+#courierLogoutBtn {
+    margin-top: 12px;
+    padding: 9px 18px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    color: #b42318;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#courierLogoutBtn:hover {
+    background: #fff1f0;
+}
+
+/* MENU SETTING */
+#settingsContainer {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#settingsBtn {
+    padding: 9px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    color: #333;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#settingsBtn:hover {
+    background: #f3f3f3;
+}
+
+#settingsMenu {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    min-width: 130px;
+    padding: 6px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+#settingsMenu[hidden] {
+    display: none;
+}
+
+#logoutBtn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: white;
+    color: #c0392b;
+    text-align: left;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#logoutBtn:hover {
+    background: #fff0ee;
+}
+
+@media (max-width: 480px) {
+    #settingsContainer {
+        top: 12px;
+        right: 12px;
+    }
+}
